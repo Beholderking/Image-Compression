@@ -1,0 +1,19 @@
+from PIL import Image
+
+def compress_image(input_path, output_path, quality=20):
+    try:
+        # Open the image file
+        image = Image.open(input_path)
+
+        # Compress and save the image with the specified quality
+        image.save(output_path, optimize=True, quality=quality)
+        print(f"Image compressed and saved to {output_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    input_path = "input.jpg"  # Replace with the path to your input image
+    output_path = "compressed.jpg"  # Replace with the desired output path
+    quality = 20  # Adjust the quality (0-100) as needed
+
+    compress_image(input_path, output_path, quality)
